@@ -99,9 +99,6 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya 
-		3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
-*/
 enbuyuk = sayilar[0];
 enkucuk = sayilar[0];
 
@@ -115,10 +112,12 @@ for (let i = 1; i < sayilar.length; i++) {
   }
 }
 
-
 // 3b çözümü:
-
-/* kodlar buraya */
+// 3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 3'ün tam katı olan sayıları atayın (.forEach metodunu kullanın)
+  ucetambolunenler = [...sayilar]
+  sayilar.forEach(sayi => {if(sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }})
 
 // 3c çözümü:
 
