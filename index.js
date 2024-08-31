@@ -120,12 +120,13 @@ for (let i = 1; i < sayilar.length; i++) {
   }})
 
 // 3c çözümü:
+// 3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup, sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
 
-/* kodlar buraya */
 
 // 3d çözümü
+// 3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
 
-/* kodlar buraya */
+ besyuzdenkucuksayilar = sayilar.filter(sayi => {return sayi < 500});
 
 // 3e çözümü
 
