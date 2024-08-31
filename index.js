@@ -102,7 +102,6 @@ let ucetambolunenler,
 enbuyuk = sayilar[0];
 enkucuk = sayilar[0];
 
-
 for (let i = 1; i < sayilar.length; i++) {
   if (sayilar[i] > enbuyuk) {
     enbuyuk = sayilar[i];
@@ -114,14 +113,14 @@ for (let i = 1; i < sayilar.length; i++) {
 
 // 3b çözümü:
 // 3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 3'ün tam katı olan sayıları atayın (.forEach metodunu kullanın)
-  ucetambolunenler = [...sayilar]
-  sayilar.forEach(sayi => {if(sayi % 3 === 0){
+ucetambolunenler = [];  
+sayilar.forEach(sayi => {if(sayi % 3 === 0){
     ucetambolunenler.push(sayi);
   }})
 
 // 3c çözümü:
 // 3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup, sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
-
+ucebolunenlerintoplami =  ucetambolunenler.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 // 3d çözümü
 // 3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
@@ -130,13 +129,12 @@ besyuzdenkucuksayilar = sayilar.filter(sayi => {return sayi < 500});
 
 // 3e çözümü
 // 3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
-siralisayilar = besyuzdenkucuksayilar.sort(function(a, b){return a - b});
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort(function(a, b){return a - b});
 
 // 3f çözümü
 
-/* kodlar buraya */
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
