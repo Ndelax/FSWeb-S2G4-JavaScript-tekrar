@@ -51,7 +51,7 @@ function KareninAlani(kenaruzunlugu) {
 */
 
 function CemberinCevresi(yaricap) {
-  return 2 * pi * yaricap
+  return 2 * pi * yaricap;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -65,7 +65,7 @@ function CemberinCevresi(yaricap) {
 */
 
 function CemberinAlani(yaricap, pi) {
-  return pi * Math.pow(yaricap,2)
+  return pi * Math.pow(yaricap, 2);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -84,7 +84,8 @@ function CemberinAlani(yaricap, pi) {
 		
 		3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
 		ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
-		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
+    💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
+		
 */
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
@@ -113,27 +114,65 @@ for (let i = 1; i < sayilar.length; i++) {
 
 // 3b çözümü:
 // 3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 3'ün tam katı olan sayıları atayın (.forEach metodunu kullanın)
-ucetambolunenler = [];  
-sayilar.forEach(sayi => {if(sayi % 3 === 0){
+ucetambolunenler = [];
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
     ucetambolunenler.push(sayi);
-  }})
+  }
+});
 
 // 3c çözümü:
 // 3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup, sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
-ucebolunenlerintoplami =  ucetambolunenler.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+ucebolunenlerintoplami = ucetambolunenler.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
 
 // 3d çözümü
 // 3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
 
-besyuzdenkucuksayilar = sayilar.filter(sayi => {return sayi < 500});
+besyuzdenkucuksayilar = sayilar.filter((sayi) => {
+  return sayi < 500;
+});
 
 // 3e çözümü
 // 3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
 
-siralisayilar = besyuzdenkucuksayilar.sort(function(a, b){return a - b});
+siralisayilar = besyuzdenkucuksayilar.sort(function (a, b) {
+  return a - b;
+});
 
 // 3f çözümü
+let tekrarSayilari = {};  
+for (let i = 0; i < sayilar.length; i++) {
+    let sayi = sayilar[i];
+    if (tekrarSayilari[sayi]) {
+        tekrarSayilari[sayi]++;
+    } else {
+        tekrarSayilari[sayi] = 1;
+    }
+}
+tekraredensayilar = [];
+for (let sayi in tekrarSayilari) {
+    if (tekrarSayilari[sayi] > 1) {
+        let tekrarSayisi = tekrarSayilari[sayi];
+        let string = `${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`;
+        tekraredensayilar.push(string);
+    }
+}
 
+// 3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. 
+//sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string 
+//oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar 
+//edilmiştir"
+
+//	ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` 
+//dizisine aktaracağız.
+
+//💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek
+// için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde 
+//stringi oluşturup verilen diziye aktarmalısınız.
+		
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
